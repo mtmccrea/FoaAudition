@@ -1071,29 +1071,19 @@ FoaAuditionView {
 		if( who == audition, {
 			switch ( what,
 				\buffer, {
-					var filename = args[0];
-					fileTxt.string_( filename );
-					// fileChk.valueAction_(1);
+					fileTxt.string_( args[0] );
 				},
 				\pwSynthRunning, {
-					var bool = args[0];
-					// pwPlayBut.value = if( bool ){1}{0};
-					pwPlayBut.stringColor = if(bool){playColor}{stopColor};
+					pwPlayBut.stringColor = if (args[0]) {playColor}{stopColor};
 				},
 				\sfSynthRunning, {
-					var bool = args[0];
-					// sfPlayBut.value = if( bool ){1}{0};
-					sfPlayBut.stringColor = if(bool){playColor}{stopColor};
+					sfPlayBut.stringColor = if (args[0]) {playColor}{stopColor};
 				},
 				\inbusSynthRunning, {
-					var bool = args[0];
-					// inPlayBut.value = if( bool ){1}{0};
-					inPlayBut.stringColor = if(bool){playColor}{stopColor};
+					inPlayBut.stringColor = if (args[0]) {playColor}{stopColor};
 				},
 				\diffSynthRunning, {
-					var bool = args[0];
-					// diffPlayBut.value = if( bool ){1}{0};
-					diffPlayBut.stringColor = if(bool){playColor}{stopColor};
+					diffPlayBut.stringColor = if (args[0]) {playColor}{stopColor};
 				},
 				\amp, {
 					var db = args[0].ampdb;
@@ -1122,8 +1112,7 @@ FoaAuditionView {
 					}.defer;
 				},
 				\status, {
-					var str = args[0];
-					fileTxt.string_( str );
+					fileTxt.string_( args[0] );
 				},
 			)
 		})
