@@ -33,26 +33,11 @@ FoaAudition {
 			}, '/audition_az', NetAddr("127.0.0.1", 57110)
 		);
 
-		// OSCdef( \azResponder_request,
-		// 	{ |msg, time, addr, recvPort|
-		// 		this.changed(\pwAzim, msg[3]);
-		// 		// for fixed position controls - don't update them when rotating
-		// 		// this.changed(\pwAzimFixed, msg[3]);
-		// 	}, '/audition_az_request', NetAddr("127.0.0.1", 57110)
-		// );
 		OSCdef( \elResponder,
 			{ |msg, time, addr, recvPort|
 				this.changed(\pwElev, msg[3]);
 			}, '/audition_el', NetAddr("127.0.0.1", 57110)
 		);
-
-		// OSCdef( \elResponder_request,
-		// 	{ |msg, time, addr, recvPort|
-		// 		this.changed(\pwElev, msg[3]);
-		// 		// for fixed position controls - don't update them when rotating
-		// 		// this.changed(\pwAzimFixed, msg[3]);
-		// 	}, '/audition_el_request', NetAddr("127.0.0.1", 57110)
-		// );
 	}
 
 
@@ -779,8 +764,11 @@ FoaAuditionView {
 
 		addXformBut = Button().states_([["Add Transform"]])
 		.action_({
-			xformDisplay = FoaXformDisplay(16);
-			xformDisplay.setAudition(audition);
+			// check that the audition isn't already talking to an FoaXformDisplay
+			audition.dependants.collect(_.class).includes(FoaXformDisplay).not.if{
+				xformDisplay = FoaXformDisplay(16);
+				xformDisplay.setAudition(audition);
+			}
 		})
 	}
 
