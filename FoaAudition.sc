@@ -248,7 +248,7 @@ FoaAudition {
 			var addAct, targ, numchans, mtxFaderLoadCond = Condition(false), dummyLoad, dummyBuf;
 
 			server = server ?? Server.default;
-			addAct = addAction ?? {\addToTail};
+			addAct = addAction ?? {\addToHead};
 			targ = target ?? {1};
 			xformMatrix ?? { xformMatrix = Matrix.newIdentity( 4 ) };
 
