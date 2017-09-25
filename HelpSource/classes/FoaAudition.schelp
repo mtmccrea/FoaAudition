@@ -88,6 +88,8 @@ Load a new sound file of FOA b-format material for playback. Must be 3 (pantopho
 METHOD:: matrixFader
 Get the instance of code::FoaMatrixFade:: used internally.  Useful for chaning the transform matrix manually, changing the matrix crossfade time, etc.
 
+PRIVATE:: auditionEnabled, diffRtt, diffRttFreq, diffSynth, inbusSynth, internalInbus, loading, playSynth, prepareAuditioning, pwAzim, pwEl, pwSynth, server, sfSynth_3ch, sfSynth_4ch, soundfileSynth, stopSynth, ui, xFade
+
 
 EXAMPLES::
 

@@ -1125,8 +1125,3 @@ FoaAuditionView {
         })
     }
 }
-
-/* SCRATCH
-f = FoaAudition(0, 0.1);
-f.gui
-*/
